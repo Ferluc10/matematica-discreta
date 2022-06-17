@@ -111,14 +111,93 @@ class Entrega {
      * que cada un d'ells està ordenat de menor a major.
      */
     static boolean exercici3(int[][] universe) {
-      return false; // TO DO
+      static boolean exercici3(int[][] universe) {
+        for(int i=0;i<universe.length-1;i++){
+            int[]y=universe[i];
+            boolean b=true;
+            for(int z=0;z<universe.length&&b==true;z++){
+                if(z!=i){
+                    int[]x=universe[z];
+                    if(yincluidox(y,x)){
+                        b=false;
+                    }
+                }
+            }
+            if(b==true){
+                return true;//no cambiar
+            }
+        }
+        return false; // DONE
+    }
+      //Mètode que retorna true si y está inclós en x
+    static boolean yincluidox(int[]y,int[]x){
+        if(y.length==0){
+            return true;
+        }
+        if(iguales(x,y)){
+            return true;
+        }
+        for(int i=0;i<y.length;i++){
+            if(!numincluidox(y[i],x)){
+                return false;
+            }
+        }
+        return true;
+    }
+      //Mètode que retorna true si un nombre y está inclós en x
+    static boolean numincluidox(int y,int[]x){
+        for(int i=0;i<x.length;i++){
+            if(y==x[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+      //Mètode que retorna true si y és igual a x
+    static boolean iguales(int[]x,int[]y){
+        if(x.length!=y.length){
+            return false;
+        }
+        for(int i=0;i<x.length;i++){
+            if(x[i]!=y[i]){
+                return false;
+            }
+        }
+        return true;
+    }
     }
 
     /*
      * És cert que ∀x. ∃!y. x·y ≡ 1 (mod n) ?
      */
     static boolean exercici4(int[] universe, int n) {
-      return false; // TO DO
+      static boolean exercici4(int[] universe, int n) {
+        int x;
+        int y;
+        for(int i=0;i<universe.length;i++){
+            x=universe[i];
+            int contadorx=0;
+            for(int z=0;z<universe.length;z++){
+                y=universe[z];
+                if(congr(x*y,n)){
+                    contadorx++;
+                }
+                if(contadorx>1){
+                    return false;
+                }
+            }
+            if(contadorx==0){
+                return false;
+            }
+        }
+        return true; // DONE
+    }
+    static boolean congr(int i,int n){
+        while(i>=11){
+            i=i-11;
+        }
+        return i==1;
+    }
     }
 
     /*
