@@ -80,10 +80,28 @@ class Entrega {
     static boolean exercici2(int[] universe, Predicate<Integer> p, Predicate<Integer> q) {
       int x;
       int y;
+      int contadorx=0;
       for(int i=0;i<universe.length;i++){
-        
+        x=universe[i];
+        boolean b=true;
+        for(int z=0;z<universe.length;z++){
+          y=universe[z];
+          if(q.test(y)){
+            if((p.test(x))&&(b==true)){
+              if(contadorx>1){
+                return false;
+              }else{
+                contadorx++;
+                b=false;
+              }
+            }
+          }
+        }
       }
-      return false; // TO DO
+      if(contadorx==0){
+        return false;
+      }
+      return true; // DONE
     }
 
     /*
