@@ -27,7 +27,7 @@ import java.util.Set;
  * Podeu fer aquesta entrega en grups de com a màxim 3 persones, i necessitareu com a minim Java 8.
  * Per entregar, posau a continuació els vostres noms i entregau únicament aquest fitxer.
  * - Nom 1:Marcos Ferrer Pacheco
- * - Nom 2:
+ * - Nom 2:Fernando Pons Taltavull
  * - Nom 3:
  *
  * L'entrega es farà a través d'una tasca a l'Aula Digital abans de la data que se us hagui
@@ -307,7 +307,111 @@ class Entrega {
      * Podeu soposar que `x` pertany a `a` i que `a` està ordenat de menor a major.
      */
     static boolean exercici2(int[] a, int[][] rel, int x) {
-      return false; // TO DO
+      if(a[0]!=x){
+            return false;
+        }
+        if(!reflexiva(a,rel)){
+            return false;
+        }
+        if(!antisimetrica(a,rel)){
+            return false;
+        }
+        if(!transitiva(a,rel)){
+            return false;
+        }
+        return true; // DONE
+    }
+    static boolean reflexiva(int [] a, int[][]rel){
+        for(int i=0;i<a.length;i++){
+            int x=a[i];
+            boolean z=false;
+            for(int j=0;j<rel.length;j++){
+                int [] k=rel[j];
+                if(k[0]==x&&k[1]==x){
+                    z=true;
+                }
+            }
+            if(z==false){
+                return false;
+            }
+        }
+        return true;
+    }
+    static boolean antisimetrica(int [] a, int[][]rel){
+        for(int i=0;i<a.length;i++){
+            int x=a[i];
+            for(int j=0;j<rel.length;j++){
+                int[]u=rel[j];
+                if(x==u[0]){
+                    int t=u[1];
+                    for(int c=0;c<rel.length;c++){
+                        int[]r=rel[c];
+                        if(t==r[0]&&x==r[1]){
+                            if(t!=x){
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    static boolean transitiva(int [] a, int[][]rel){
+        for(int j=0;j<rel.length;j++){
+            int q=0;
+            boolean v=false;
+            int []u=rel[j];
+            if(u[0]==u[1]){
+                v=true;
+            }
+            int x=u[0];
+            int t=u[1];
+            for(int i=0;i<rel.length&&v==false;i++){
+                int []p=rel[i];
+                if(t==p[0]){
+                    int w=p[1];
+                    if(seRelaciona(t,rel)){
+                        for(int y=0;y<rel.length&&v==false;y++){
+                            int[]l=rel[y];
+                            if(!iguales(u,l)){
+                                if(x==l[0]&&w==l[1]){
+                                    v=true;
+                                }
+                            }
+                        }
+                    }else{
+                        q++;
+                    }
+                }
+            }
+            if(v==false&&q==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    static boolean seRelaciona(int x,int[][]rel){
+        for(int i=0;i<rel.length;i++){
+            int[]y=rel[i];
+            if(x==y[0]){
+                if(y[0]!=y[1]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    static boolean iguales(int[]x,int[]y){
+        if(x.length!=y.length){
+            return false;
+        }
+        for(int i=0;i<x.length;i++){
+            if(x[i]!=y[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /*
@@ -316,7 +420,19 @@ class Entrega {
      * que `y` pertany a `codom` i que tant `dom` com `codom` també estàn ordenats de menor a major.
      */
     static int[] exercici3(int[] dom, int[] codom, Function<Integer, Integer> f, int y) {
-      return new int[]{}; // TO DO
+        int[]t=new int[dom.length];
+        int numeroFinal=0;
+        for(int i=0;i<dom.length;i++){
+            if(f.apply(dom[i])==0){
+                t[numeroFinal]=dom[i];
+                numeroFinal++;
+            }
+        }
+        int[]Final=new int[numeroFinal];
+        for(int i=0;i<numeroFinal;i++){
+            Final[i]=t[i];
+        }
+        return Final; // DONE
     }
 
     /*
@@ -335,7 +451,45 @@ class Entrega {
     static final int BIJECTIVE = INJECTIVE + SURJECTIVE;
 
     static int exercici4(int[] dom, int[] codom, Function<Integer, Integer> f) {
-      return -1; // TO DO
+      return injectiva(dom,codom,f)+exhaustiva(dom,codom,f); // DONE
+    }
+    static int injectiva(int[] dom, int[] codom, Function<Integer, Integer> f){
+        int[]t=new int[codom.length];
+        for(int i=0;i<t.length;i++){
+            t[i]=0;
+        }
+        for(int i=0;i<dom.length;i++){
+            for(int j=0;j<codom.length;j++){
+                if(f.apply(dom[i])==codom[j]){
+                    t[j]++;
+                }
+            }
+        }
+        for(int i=0;i<t.length;i++){
+            if(t[i]>1){
+                return 0;
+            }
+        }
+        return 1;
+    }
+    static int exhaustiva(int[] dom, int[] codom, Function<Integer, Integer> f){
+        int[]t=new int[codom.length];
+        for(int i=0;i<t.length;i++){
+            t[i]=0;
+        }
+        for(int i=0;i<dom.length;i++){
+            for(int j=0;j<codom.length;j++){
+                if(f.apply(dom[i])==codom[j]){
+                    t[j]++;
+                }
+            }
+        }
+        for(int i=0;i<t.length;i++){
+            if(t[i]==0){
+                return 0;
+            }
+        }
+        return 2;
     }
 
     /*
