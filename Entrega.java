@@ -344,7 +344,7 @@ class Entrega {
     static void tests() {
       // Exercici 1
       // `p` és una partició d'`a`?
-
+ 
       assertThat(
           exercici1(
               new int[] { 1, 2, 3, 4, 5 },
@@ -533,6 +533,17 @@ class Entrega {
      * Donada una matriu d'adjacencia `A` d'un graf no dirigit, retornau l'ordre i la mida del graf.
      */
     static int[] exercici1(int[][] A) {
+    //El grado de una matriz es la cantidad de elementos que tiene por fila o por columna si es cuadrada y las matrices de adyacencia son cuadradas 
+    static int GradoPorFila (int [][] A){
+     for (int i=0;i<T.length;i++){
+         numVertices=i;
+     }
+    
+      numVertices++;
+       return int []{numVertices};
+     
+    }
+      //Método para la medida:
       return new int[]{}; // TO DO
     }
 
@@ -556,6 +567,7 @@ class Entrega {
      * Donada una matriu d'adjacencia `A` d'un graf connex no dirigit, digau si el graf conté algún cicle.
      */
     static boolean exercici4(int[][] A) {
+    
       return false; // TO DO
     }
     /*
