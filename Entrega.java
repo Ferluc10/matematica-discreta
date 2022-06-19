@@ -630,7 +630,14 @@ class Entrega {
      * Podeu suposar que `a` i `b` són positius.
      */
     static int exercici1(int a, int b) {
-      return -1; // TO DO
+    //Obtiene el mcd
+    int temp;
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;// DONE
     }
 
     /*
