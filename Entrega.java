@@ -300,7 +300,7 @@ class Entrega {
     static boolean exercici1(int[] a, int[][] p) {
       return false; // TO DO
     }
-
+ 
     /*
      * Comprovau si la relació `rel` definida sobre `a` és un ordre parcial i que `x` n'és el mínim.
      *
@@ -687,21 +687,27 @@ class Entrega {
      * Donada una matriu d'adjacencia `A` d'un graf no dirigit, retornau l'ordre i la mida del graf.
      */
     static int[] exercici1(int[][] A) {
-    //El grado de una matriz es la cantidad de elementos que tiene por fila o por columna si es cuadrada y las matrices de adyacencia son cuadradas 
-     int numVertices;
-     for (int i=0;i<T.length;i++){
-         numVertices=i;
+      int grado=0;
+      //método que devuelve el grado de la matriz adyacente.
+      public void grado(int [][]m){   
+     
+     for (int i=0;i<m.length;i++){
+         grado=i;
      }
-     numVertices++;
-     int mida=0; 
-        for (int indice1=0;indice1<M.length;indice1++) {       
+     grado++;
+     }
+       return int []{grado};
+    }
+      //Método para la medida:
+    int mida;
+      for (int indice1=0;indice1<M.length;indice1++) {       
             for (int indice2=0;indice2<M[indice1].length;indice2++) {
                 if(indice1==indice2-1){
                 indice1=0;
                 }
                 while((indice1!=indice2)){
                     if(M[indice2][indice1]!=0){
-                    result++;
+                    mida++;
                     indice1++;
                     }else{
                     indice1++;
@@ -709,12 +715,8 @@ class Entrega {
                 }
             }            
         }
-     
-       return int []{numVertices,mida};
-     
-    }
-      //Método para la medida:
-      return new int[]{}; // TO DO
+
+      return new int[]{mida}; // TO DO
     }
 
     /*
