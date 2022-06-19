@@ -688,13 +688,29 @@ class Entrega {
      */
     static int[] exercici1(int[][] A) {
     //El grado de una matriz es la cantidad de elementos que tiene por fila o por columna si es cuadrada y las matrices de adyacencia son cuadradas 
-    static int GradoPorFila (int [][] A){
+     int numVertices;
      for (int i=0;i<T.length;i++){
          numVertices=i;
      }
-    
-      numVertices++;
-       return int []{numVertices};
+     numVertices++;
+     int mida=0; 
+        for (int indice1=0;indice1<M.length;indice1++) {       
+            for (int indice2=0;indice2<M[indice1].length;indice2++) {
+                if(indice1==indice2-1){
+                indice1=0;
+                }
+                while((indice1!=indice2)){
+                    if(M[indice2][indice1]!=0){
+                    result++;
+                    indice1++;
+                    }else{
+                    indice1++;
+                    }
+                }
+            }            
+        }
+     
+       return int []{numVertices,mida};
      
     }
       //Método para la medida:
