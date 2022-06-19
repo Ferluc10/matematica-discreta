@@ -635,7 +635,7 @@ class Entrega {
     while (b != 0) {
         temp = b;
         b = a % b;
-        a = temporal;
+        a = temp;
     }
     return a;// DONE
     }
