@@ -742,7 +742,18 @@ class Entrega {
      * Donada una matriu d'adjacencia `A` d'un graf no dirigit, digau si el graf es eulerià.
      */
     static boolean exercici2(int[][] A) {
-      return false; // TO DO
+          for(int i=0;i<A.length;i++){
+            int sum=0;
+            for(int j=0;j<A[i].length;j++){
+              if(A[i][j]==1){
+              sum++;
+              }
+            }
+            if(sum%2!=0){
+            return false;
+            }
+        }
+        return true;//DONE
     }
 
     /*
