@@ -298,7 +298,46 @@ class Entrega {
      * tant `a` com cada un dels elements de `p` està ordenat de menor a major.
      */
     static boolean exercici1(int[] a, int[][] p) {
-      return false; // TO DO
+        for(int i=0;i<p.length;i++){
+            if(!subconjunto(a,p[i])){
+               return false; 
+            }
+        }
+        for(int i=0;i<p.length-1;i++){
+            int[]k=p[i];
+            int o=i+1;
+            for(int j=o;j<p.length;j++){
+                int[]l=p[j];
+                if(!algunoIgual(k,l)){
+                    return false;
+                }
+            }
+        }
+        return true; // DONE
+    }
+    static boolean subconjunto(int[]a,int[]p){
+        int contador=0;
+        for(int i=0;i<p.length;i++){
+            for(int j=0;j<a.length;j++){
+                if(a[j]==p[i]){
+                    contador++;
+                }
+            }
+        }
+        if(contador!=p.length){
+            return false;
+        }
+        return true;
+    }
+    static boolean algunoIgual(int[]a,int[]b){
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<b.length;j++){
+                if(a[i]==b[j]){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
  
     /*
@@ -735,7 +774,7 @@ class Entrega {
             }            
         }
 
-      return new int[]{mida}; // TO DO
+      return new int[]{mida}; // DONE
     }
 
     /*
