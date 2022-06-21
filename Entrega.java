@@ -745,14 +745,14 @@ class Entrega {
     static int[] exercici1(int[][] A) {
       int grado=0;
       //método que devuelve el grado de la matriz adyacente.
-     for (int i=0;i<m.length;i++){
+     for (int i=0;i<A.length;i++){
          grado=i;
      }
      grado++;
-     }
        return int []{grado};
     }
       //Método para la medida:
+    public int[] mida(int [][]M){
     int mida;
       for (int indice1=0;indice1<M.length;indice1++) {       
             for (int indice2=0;indice2<M[indice1].length;indice2++) {
