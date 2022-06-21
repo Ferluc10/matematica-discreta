@@ -770,7 +770,7 @@ class Entrega {
             }            
         }
 
-      return new int[]{mida}; // DONE
+      return int[]{mida}; // DONE
     }
 
     /*
@@ -897,9 +897,8 @@ class Entrega {
   }
 
   static void assertThat(boolean b) {
-    if (!b){
+    if (!b)
       throw new AssertionError();
-    }
   }
 }
 
