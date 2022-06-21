@@ -111,7 +111,6 @@ class Entrega {
      * que cada un d'ells està ordenat de menor a major.
      */
     static boolean exercici3(int[][] universe) {
-      static boolean exercici3(int[][] universe) {
         for(int i=0;i<universe.length-1;i++){
             int[]y=universe[i];
             boolean b=true;
@@ -171,7 +170,6 @@ class Entrega {
      * És cert que ∀x. ∃!y. x·y ≡ 1 (mod n) ?
      */
     static boolean exercici4(int[] universe, int n) {
-      static boolean exercici4(int[] universe, int n) {
         int x;
         int y;
         for(int i=0;i<universe.length;i++){
