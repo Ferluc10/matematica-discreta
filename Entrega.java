@@ -801,7 +801,13 @@ class Entrega {
      *
      */
     static int exercici3(int n, int d) {
-      return -1; // TO DO
+        int contador=1;
+        int hojas=1;
+        while(hojas!=n){
+            contador=contador+1*d;
+            hojas=hojas+d-1;
+        }
+        return contador; // DONE
     }
 
     /*
