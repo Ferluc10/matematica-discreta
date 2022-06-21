@@ -842,7 +842,7 @@ class Entrega {
          return true;    
       }
     
-      return false; // TO DO
+      return false; // DONE
     }
     /*
      * Aquí teniu alguns exemples i proves relacionades amb aquests exercicis (vegeu `main`)
