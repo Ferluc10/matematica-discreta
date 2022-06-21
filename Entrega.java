@@ -814,6 +814,33 @@ class Entrega {
      * Donada una matriu d'adjacencia `A` d'un graf connex no dirigit, digau si el graf conté algún cicle.
      */
     static boolean exercici4(int[][] A) {
+       int Aristas = 0;
+       int numVertices = 0;
+      for (int indice1=0;indice1<A.length;indice1++) {       
+            for (int indice2=0;indice2<A[indice1].length;indice2++) {
+                if(indice1==indice2-1){
+                indice1=0;
+                }
+                while((indice1!=indice2)){
+                    if(A[indice2][indice1]!=0){
+                    Aristas++;
+                    indice1++;
+                    }else{
+                    indice1++;
+                    }
+                }
+            }            
+        }
+      
+      
+         for (int i=0;i<A.length;i++){
+         numVertices=i;
+     }
+     numVertices++;
+     
+        if(numVertices==Aristas){
+         return true;    
+      }
     
       return false; // TO DO
     }
