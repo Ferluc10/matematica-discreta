@@ -745,8 +745,6 @@ class Entrega {
     static int[] exercici1(int[][] A) {
       int grado=0;
       //método que devuelve el grado de la matriz adyacente.
-      public void grado(int [][]m){   
-     
      for (int i=0;i<m.length;i++){
          grado=i;
      }
