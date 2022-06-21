@@ -897,8 +897,9 @@ class Entrega {
   }
 
   static void assertThat(boolean b) {
-    if (!b)
+    if (!b){
       throw new AssertionError();
+    }
   }
 }
 
